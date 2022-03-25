@@ -4,36 +4,42 @@ Opcion 1) Configurar variables
 Opcion 2) Obtener Informe de la letra
 Opcion 3) Guardar Informe
 Opcion 4) Cambiar propietarios y permiso
-opcion 5) Salir"
+opcion 5) Salir
+Ingresar una opcion"
 
-opcion=0
 
 echo "$menu"
+
+read opcion
+echo "La opcion elegida es: " $opcion
+
 while 
 	$opcion==0
 do
-	read -p
+	read opcion
 
-function configurarVariables{
-	echo "configurar Variables"
+function configurarVariables(){
+	echo 'configurar variables'
 }
 
-function obtenerInformeLetra{
-	echo 'obtenerInformeLetra'
+configurarVariables
+
+function obtenerInformeLetra(){
+	echo 'obtener Informe Letra'
 }
 
-function obtenerInforme{
-	echo obtenerInforme
+function obtenerInforme(){
+	echo obtener Informe
 }
 
-function guardarInforme{
-	echo guardarInforme
+function guardarInforme(){
+	echo guardar Informe
 }
 
-function cambiarPropietariosYPermiso{
-	echo cambiarPropietarios
+function cambiarPropietariosYPermiso(){
+	echo cambiar Propietarios
 }
 
-function salir{
+function salir(){
 	echo salir
 }
