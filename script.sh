@@ -19,7 +19,7 @@ do
 	read opcion
 
 function configurarVariables(){
-	echo 'configurar variables'
+	echo "configurar variables"
 }
 
 configurarVariables
@@ -42,4 +42,14 @@ function cambiarPropietariosYPermiso(){
 
 function salir(){
 	echo salir
+	exit 1;
 }
+if [$opcion == "1"]; 
+then
+	echo "watafac"
+	configurarVariables
+else
+	obtenerInformeLetra
+fi
+
+salir
