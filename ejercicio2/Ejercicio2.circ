@@ -56,5 +56,77 @@
     <a name="circuit" val="main"/>
     <a name="circuitnamedboxfixedsize" val="true"/>
     <a name="simulationFrequency" val="1.0"/>
+    <comp lib="0" loc="(130,570)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="facing" val="north"/>
+    </comp>
+    <comp lib="0" loc="(150,570)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="facing" val="north"/>
+    </comp>
+    <comp lib="0" loc="(170,570)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="facing" val="north"/>
+    </comp>
+    <comp lib="0" loc="(200,570)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="facing" val="north"/>
+    </comp>
+    <comp lib="0" loc="(220,570)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="facing" val="north"/>
+    </comp>
+    <comp lib="0" loc="(240,570)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="facing" val="north"/>
+    </comp>
+    <comp lib="0" loc="(270,570)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="facing" val="north"/>
+    </comp>
+    <comp lib="0" loc="(290,570)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="facing" val="north"/>
+    </comp>
+    <comp lib="0" loc="(310,570)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="facing" val="north"/>
+    </comp>
+    <wire from="(130,520)" to="(130,570)"/>
+    <wire from="(150,520)" to="(150,570)"/>
+    <wire from="(170,520)" to="(170,570)"/>
+    <wire from="(200,520)" to="(200,570)"/>
+    <wire from="(220,520)" to="(220,570)"/>
+    <wire from="(240,520)" to="(240,570)"/>
+    <wire from="(270,520)" to="(270,570)"/>
+    <wire from="(290,520)" to="(290,570)"/>
+    <wire from="(310,520)" to="(310,570)"/>
+  </circuit>
+  <circuit name="Memoria_Interna">
+    <a name="appearance" val="logisim_evolution"/>
+    <a name="circuit" val="Memoria_Interna"/>
+    <a name="circuitnamedboxfixedsize" val="true"/>
+    <a name="simulationFrequency" val="1.0"/>
+    <comp lib="0" loc="(140,560)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+    </comp>
+    <comp lib="0" loc="(150,600)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="width" val="3"/>
+    </comp>
+    <comp lib="2" loc="(190,560)" name="Decoder">
+      <a name="select" val="3"/>
+    </comp>
+    <wire from="(140,560)" to="(180,560)"/>
+    <wire from="(150,600)" to="(190,600)"/>
+    <wire from="(190,560)" to="(190,600)"/>
+    <wire from="(210,480)" to="(300,480)"/>
+    <wire from="(210,490)" to="(300,490)"/>
+    <wire from="(210,500)" to="(300,500)"/>
+    <wire from="(210,510)" to="(300,510)"/>
+    <wire from="(210,520)" to="(300,520)"/>
+    <wire from="(210,530)" to="(300,530)"/>
+    <wire from="(210,540)" to="(300,540)"/>
+    <wire from="(210,550)" to="(300,550)"/>
   </circuit>
 </project>
