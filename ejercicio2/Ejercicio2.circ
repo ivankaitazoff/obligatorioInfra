@@ -56,51 +56,44 @@
     <a name="circuit" val="main"/>
     <a name="circuitnamedboxfixedsize" val="true"/>
     <a name="simulationFrequency" val="1.0"/>
-    <comp lib="0" loc="(130,570)" name="Pin">
+    <comp lib="0" loc="(180,510)" name="Pin">
       <a name="appearance" val="NewPins"/>
-      <a name="facing" val="north"/>
+      <a name="label" val="ABC"/>
+      <a name="width" val="3"/>
     </comp>
-    <comp lib="0" loc="(150,570)" name="Pin">
+    <comp lib="0" loc="(180,510)" name="Splitter">
+      <a name="bit0" val="2"/>
+      <a name="bit2" val="0"/>
+      <a name="fanout" val="3"/>
+      <a name="incoming" val="3"/>
+    </comp>
+    <comp lib="0" loc="(180,550)" name="Pin">
       <a name="appearance" val="NewPins"/>
-      <a name="facing" val="north"/>
+      <a name="label" val="DEF"/>
+      <a name="width" val="3"/>
     </comp>
-    <comp lib="0" loc="(170,570)" name="Pin">
+    <comp lib="0" loc="(180,550)" name="Splitter">
+      <a name="bit0" val="2"/>
+      <a name="bit2" val="0"/>
+      <a name="fanout" val="3"/>
+      <a name="incoming" val="3"/>
+    </comp>
+    <comp lib="0" loc="(180,590)" name="Pin">
       <a name="appearance" val="NewPins"/>
-      <a name="facing" val="north"/>
+      <a name="label" val="GHI"/>
+      <a name="width" val="3"/>
     </comp>
-    <comp lib="0" loc="(200,570)" name="Pin">
-      <a name="appearance" val="NewPins"/>
-      <a name="facing" val="north"/>
+    <comp lib="0" loc="(180,590)" name="Splitter">
+      <a name="bit0" val="2"/>
+      <a name="bit2" val="0"/>
+      <a name="fanout" val="3"/>
+      <a name="incoming" val="3"/>
     </comp>
-    <comp lib="0" loc="(220,570)" name="Pin">
-      <a name="appearance" val="NewPins"/>
-      <a name="facing" val="north"/>
+    <comp lib="5" loc="(300,630)" name="Button">
+      <a name="label" val="Procesar"/>
     </comp>
-    <comp lib="0" loc="(240,570)" name="Pin">
-      <a name="appearance" val="NewPins"/>
-      <a name="facing" val="north"/>
-    </comp>
-    <comp lib="0" loc="(270,570)" name="Pin">
-      <a name="appearance" val="NewPins"/>
-      <a name="facing" val="north"/>
-    </comp>
-    <comp lib="0" loc="(290,570)" name="Pin">
-      <a name="appearance" val="NewPins"/>
-      <a name="facing" val="north"/>
-    </comp>
-    <comp lib="0" loc="(310,570)" name="Pin">
-      <a name="appearance" val="NewPins"/>
-      <a name="facing" val="north"/>
-    </comp>
-    <wire from="(130,520)" to="(130,570)"/>
-    <wire from="(150,520)" to="(150,570)"/>
-    <wire from="(170,520)" to="(170,570)"/>
-    <wire from="(200,520)" to="(200,570)"/>
-    <wire from="(220,520)" to="(220,570)"/>
-    <wire from="(240,520)" to="(240,570)"/>
-    <wire from="(270,520)" to="(270,570)"/>
-    <wire from="(290,520)" to="(290,570)"/>
-    <wire from="(310,520)" to="(310,570)"/>
+    <wire from="(300,630)" to="(350,630)"/>
+    <wire from="(350,580)" to="(350,630)"/>
   </circuit>
   <circuit name="Memoria_Interna">
     <a name="appearance" val="logisim_evolution"/>
