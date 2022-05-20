@@ -46,7 +46,7 @@ function salir(){
 }
 if [$opcion == "1"]; 
 then
-	echo "watafac"
+	echo "Opcion 1 elegida"
 	configurarVariables
 else
 	obtenerInformeLetra
