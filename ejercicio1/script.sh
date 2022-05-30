@@ -4,9 +4,9 @@ function configurarVariables(){
 	echo "Ingrese la letra"
 	read letraIngresada #falta validar
 	echo "Ingrese directorio"
-	read directorioIngresado
+	read directorioIngresado #falta validar
 	echo "Ingrese usuario"
-	read usuarioIngresado
+	read usuarioIngresado #Falta validar
 }
 
 function obtenerInformeLetra(){
