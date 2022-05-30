@@ -1,15 +1,22 @@
 #!/bin/bash
 
+letraIngresada = a
+
 function configurarVariables(){
-	echo "configurar variables"
+	echo "Ingrese la letra"
+	read letraIngresada
+	echo Letra ingresada = $letraIngresada
+	echo "Ingrese directorio"
+	read directorioIngresado
+	echo "Ingrese usuario"
+	read usuarioIngresado
 }
 
 function obtenerInformeLetra(){
-	echo "obtener Informe Letra"
-}
-
-function obtenerInforme(){
-	echo "obtener Informe"
+	echo Palabras que comienzan con letra ingresada = 
+	grep -c "^$letraIngresada" diccionario.txt #anda mal, cuenta todas las lineas
+	echo Cantidad de palabras que finalizan con la letra seleccionada
+	grep -c "$letraIngresada$" diccionario.txt #anda mal, cuenta todas las lineas
 }
 
 function guardarInforme(){
@@ -41,7 +48,7 @@ do
 			configurarVariables
 			;;
 		"Obtener Informe de la letra")
-			echo "usted eligio 2"
+			obtenerInformeLetra
 			;;
 		"Guardar Informe")
 			echo "Usted eligio 3"
