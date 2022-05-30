@@ -1,11 +1,8 @@
 #!/bin/bash
 
-letraIngresada = a
-
 function configurarVariables(){
 	echo "Ingrese la letra"
-	read letraIngresada
-	echo Letra ingresada = $letraIngresada
+	read letraIngresada #falta validar
 	echo "Ingrese directorio"
 	read directorioIngresado
 	echo "Ingrese usuario"
@@ -13,10 +10,13 @@ function configurarVariables(){
 }
 
 function obtenerInformeLetra(){
+	echo letra elegida $letraIngresada
 	echo Palabras que comienzan con letra ingresada = 
 	grep -c "^$letraIngresada" diccionario.txt #anda mal, cuenta todas las lineas
 	echo Cantidad de palabras que finalizan con la letra seleccionada
 	grep -c "$letraIngresada$" diccionario.txt #anda mal, cuenta todas las lineas
+	echo Cantidad de palabras que contienen la letra ingresada: 
+	grep -c "$letraIngresada" diccionario.txt
 }
 
 function guardarInforme(){
