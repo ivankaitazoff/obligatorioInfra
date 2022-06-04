@@ -4,9 +4,9 @@ function configurarVariables(){
 	echo "Ingrese la letra"
 	read letraIngresada #falta validar
 	echo "Ingrese directorio"
-	read directorioIngresado #falta validar
+	read directorioIngresado
 	echo "Ingrese usuario"
-	read usuarioIngresado #Falta validar
+	read usuarioIngresado
 }
 
 function obtenerInformeLetra(){
@@ -20,7 +20,19 @@ function obtenerInformeLetra(){
 }
 
 function guardarInforme(){
-	echo "guardar Informe"
+	mkdir $directorioIngresado/
+	cp diccionario.txt $directorioIngresado/diccionario.txt	
+	cd $directorioIngresado/
+	date | cat > solucion.txt #'cat >' crea archivo nuevo solo con esa linea 
+	echo Palabras que comienzan con letra ingresada: | cat >> solucion.txt
+	grep -c "^$letraIngresada" diccionario.txt | cat >> solucion.txt
+	echo Palabras que finalizan con letra ingresada: | cat >> solucion.txt
+	grep -c "$letraIngresada$" diccionario.txt | cat >> solucion.txt
+	echo Cantidad de palabras que contienen la letra ingresada:  = | cat >> solucion.txt
+	grep -c "$letraIngresada" diccionario.txt | cat >> solucion.txt	
+	rm diccionario.txt
+	cd ..
+	echo "Informe guardado"
 }
 
 function cambiarPropietariosYPermiso(){
@@ -51,10 +63,10 @@ do
 			obtenerInformeLetra
 			;;
 		"Guardar Informe")
-			echo "Usted eligio 3"
+			guardarInforme
 			;;
 		"Cambiar propietarios y permiso")
-			echo "usted eligio 4"
+			cambiarPropietariosYPermiso
 			;;
 		"Salir")
 			break
