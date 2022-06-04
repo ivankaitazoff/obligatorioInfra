@@ -2,12 +2,12 @@
 
 [] Opcion 1: configurar variables
     
-    [] Muestra el texto "ingrese letra"
-    [] Lee letra
-    [] Muestra el texto "ingrese directorio"
-    [] Lee directorio
-    [] Muestra el texto "ingrese usuario"
-    [] Lee usuario
+    [x] Muestra el texto "ingrese letra"
+    [x] Lee letra
+    [x] Muestra el texto "ingrese directorio"
+    [x] Lee directorio
+    [x] Muestra el texto "ingrese usuario"
+    [x] Lee usuario
   
  [] Validar datos ingresados
  
