@@ -3,40 +3,54 @@
 function configurarVariables(){
 	echo "Ingrese la letra"
 	read letraIngresada #falta validar
-	echo "Ingrese directorio"
-	read directorioIngresado
-	echo "Ingrese usuario"
-	read usuarioIngresado
+	letra = $letraIngresada .toLowerCase(); #
+    	const vocales = ["a", "e", "i", "o", "u"] # Defino cuales son las vocales en minuscula
+    	if (vocales.indexOf(letra ) == -1) {  #No es vocal, tengo mostrar mensaje de error	
+	echo La letra ingresada no es una vocal
+	menu #retornar al menu 
+    	} 
+	else {     # es vocal 
+		echo "Ingrese directorio"
+		read directorioIngresado
+		echo "Ingrese usuario"
+		read usuarioIngresado
+    		}
 }
 
 function obtenerInformeLetra(){
 	echo letra elegida $letraIngresada
 	echo Palabras que comienzan con letra ingresada = 
-	grep -c "^$letraIngresada" diccionario.txt
+	grep -c "^$letraIngresada" diccionario.txt  #cantidad comienzo
 	echo Cantidad de palabras que finalizan con la letra seleccionada
-	grep -c "$letraIngresada$" diccionario.txt
+	grep -c "$letraIngresada$" diccionario.txt  #cantidad fin
 	echo Cantidad de palabras que contienen la letra ingresada: 
-	grep -c "$letraIngresada" diccionario.txt
+	grep -c "$letraIngresada" diccionario.txt  #cantidad contiene
 }
 
 function guardarInforme(){
-	mkdir $directorioIngresado/
+	mkdir $directorioIngresado/  # crear carpeta
 	cp diccionario.txt $directorioIngresado/diccionario.txt	
 	cd $directorioIngresado/
 	date | cat > solucion.txt #'cat >' crea archivo nuevo solo con esa linea 
 	echo Palabras que comienzan con letra ingresada: | cat >> solucion.txt
-	grep -c "^$letraIngresada" diccionario.txt | cat >> solucion.txt
+	grep -c "^$letraIngresada" diccionario.txt | cat >> solucion.txt     #escribo info en archivo, cantidad comienzo
 	echo Palabras que finalizan con letra ingresada: | cat >> solucion.txt
-	grep -c "$letraIngresada$" diccionario.txt | cat >> solucion.txt
+	grep -c "$letraIngresada$" diccionario.txt | cat >> solucion.txt     #escribo info en archivo, cantidad fin
 	echo Cantidad de palabras que contienen la letra ingresada:  = | cat >> solucion.txt
-	grep -c "$letraIngresada" diccionario.txt | cat >> solucion.txt	
-	rm diccionario.txt
+	grep -c "$letraIngresada" diccionario.txt | cat >> solucion.txt	     #escribo info en archivo, cantidad contien
+	rm diccionario.txt  #elimino el archivo
 	cd ..
 	echo "Informe guardado"
 }
 
 function cambiarPropietariosYPermiso(){
-	echo cambiar Propietarios
+	echo cambiar Propietarios # revisar
+	chown	users:Opcion1 diccionario.txt  # cambio el propietario
+	chmod +wr  diccionario.txt # doy permisos de escritura y lectura
+	chmod -wr  diccionario.txt # quito permisos de escritura y lectura
+	#Permosos de escritura y lectura al grupo y al resto del mundo
+	chmod g+wr diccionario.txt   # doy permisos de escritura y lectura al grupo 
+	chmod o+wr diccionario.txt	# doy permisos de escritura y lectura al resto
 }
 
 function salir(){
