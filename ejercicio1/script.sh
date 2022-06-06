@@ -3,19 +3,18 @@
 function configurarVariables(){
 	echo "Ingrese la letra"
 	read letraIngresada #falta validar
-	letra = $letraIngresada .toLowerCase(); #
-    	const vocales = ["a", "e", "i", "o", "u"] # Defino cuales son las vocales en minuscula
-    	if (vocales.indexOf(letra ) == -1) {  #No es vocal, tengo mostrar mensaje de error	
-	echo La letra ingresada no es una vocal
-	menu #retornar al menu 
-    	} 
-	else {     # es vocal 
-		echo "Ingrese directorio"
+	echo $letraIngresada | tr [:upper:] [:lower:] | cat > letraMinuscula
+    	# vocales=("a" "e" "i" "o" "u") # Defino cuales son las vocales en minuscula
+    	if [ $letraIngresada == 'a' ] || [ $letraIngresada == 'e' ] || [ $letraIngresada == 'i' ] || [ $letraIngresada == 'o' ] || [ $letraIngresada == 'u' ]; then   #No es vocal, tengo mostrar mensaje de error	
+	 echo "Ingrese directorio"
 		read directorioIngresado
 		echo "Ingrese usuario"
 		read usuarioIngresado
-    		}
-}
+	
+	else   # es vocal 
+	echo La letra ingresada no es una vocal
+	fi	
+	}
 
 function obtenerInformeLetra(){
 	echo letra elegida $letraIngresada
@@ -83,6 +82,7 @@ do
 			cambiarPropietariosYPermiso
 			;;
 		"Salir")
+			rm letraMinuscula
 			break
 			;;
 		*) echo "Opcion invalida $REPLY";;
