@@ -1,17 +1,23 @@
 #!/bin/bash
+existeLetra=0
+existeDirectorio=0
+existeUsuario=0
 
 function configurarVariables(){
-	echo "Ingrese la letra"
+	echo "
+	Ingrese la letra"
 	read letraIngresada #falta validar
-	echo $letraIngresada | tr [:upper:] [:lower:] | cat > letraMinuscula
-    	# vocales=("a" "e" "i" "o" "u") # Defino cuales son las vocales en minuscula
-    	if [ $letraIngresada == 'a' ] || [ $letraIngresada == 'e' ] || [ $letraIngresada == 'i' ] || [ $letraIngresada == 'o' ] || [ $letraIngresada == 'u' ]; then   #No es vocal, tengo mostrar mensaje de error	
+	echo $letraIngresada | tr [:upper:] [:lower:] | cat > letraMinuscula # creamos archivo con la letra ingresada convertida a minuscula
+	read letraIngresada <letraMinuscula # guardamos el contenido del documento 'letraMinuscula' en la variable 'letra'
+	rm letraMinuscula # borramos el archivo 'letraMinuscula'
+	if [ $letraIngresada == 'a' ] || [ $letraIngresada == 'e' ] || [ $letraIngresada == 'i' ] || [ $letraIngresada == 'o' ] || [ $letraIngresada == 'u' ]; then
+	 #La letra ingresada es vocal 
 	 echo "Ingrese directorio"
 		read directorioIngresado
 		echo "Ingrese usuario"
 		read usuarioIngresado
 	
-	else   # es vocal 
+	else   # la letra ingresada no es vocal 
 	echo La letra ingresada no es una vocal
 	fi	
 	}
@@ -43,19 +49,39 @@ function guardarInforme(){
 }
 
 function cambiarPropietariosYPermiso(){
-	echo cambiar Propietarios # revisar
-	chown	users:Opcion1 diccionario.txt  # cambio el propietario
-	chmod +wr  diccionario.txt # doy permisos de escritura y lectura
-	chmod -wr  diccionario.txt # quito permisos de escritura y lectura
-	#Permosos de escritura y lectura al grupo y al resto del mundo
-	chmod g+wr diccionario.txt   # doy permisos de escritura y lectura al grupo 
-	chmod o+wr diccionario.txt	# doy permisos de escritura y lectura al resto
+	echo 
+	'cambiar Propietarios'
+	cd $directorioIngresado
+	sudo chown $usuarioIngresado solucion.txt  # cambio el propietario
+	sudo chgrp $usuarioIngresado solucion.txt # cambio el grupo
+	sudo chmod +rw  solucion.txt # doy permisos de escritura y lectura al usuario
+	sudo chmod -x  solucion.txt # quito permisos de ejecucion al usuario
+	#Permisos de escritura y lectura al grupo y al resto del mundo
+	sudo chmod g+rw solucion.txt   # doy permisos de escritura y lectura al grupo 
+	sudo chmod g-x solucion.txt	# quito permiso de ejecucion al grupo
+	sudo chmod o+rw solucion.txt	# doy permisos de escritura y lectura al resto
+	sudo chmod o-x solucion.txt	# quito permiso de ejecucion al resto
+	cd ..
 }
 
 function salir(){
 	echo "salir"
 }
 
+function mostrarMenu(){
+	echo $menu
+	datosIngresados="
+	Se ha escogido la letra: $letraIngresada
+	Se ha escogido el directorio: $directorioIngresado
+	Se ha escogido el usuario: $usuarioIngresado
+	Ingrese su eleccion: "
+	#datosNoIngresados="
+	#Aun no se ha escogido una letra
+	#No se ha seleccionado un nombre de directorio
+	#Aun no se ha escogido un usuario
+	#Ingrese su eleccion: "
+
+}
 menu=("Configurar variables"
 "Obtener Informe de la letra"
 "Guardar Informe"
@@ -64,9 +90,15 @@ menu=("Configurar variables"
 
 
 echo "$menu"
-PS3='Ingrese su eleccion: '
+#if [  ]; then
+#fi
+
+PS3='
+Ingrese su eleccion:
+'
 select opt in "${menu[@]}"
 do
+	mostrarMenu
 	case $opt in
 		"Configurar variables")
 			echo "usted eligio 1"
@@ -82,7 +114,6 @@ do
 			cambiarPropietariosYPermiso
 			;;
 		"Salir")
-			rm letraMinuscula
 			break
 			;;
 		*) echo "Opcion invalida $REPLY";;
