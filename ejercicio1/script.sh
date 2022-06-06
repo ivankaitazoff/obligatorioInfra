@@ -4,19 +4,20 @@ existeDirectorio=0
 existeUsuario=0
 
 function configurarVariables(){
-	echo "
-	Ingrese la letra"
+	echo "Ingrese la letra"
 	read letraIngresada #falta validar
 	echo $letraIngresada | tr [:upper:] [:lower:] | cat > letraMinuscula # creamos archivo con la letra ingresada convertida a minuscula
 	read letraIngresada <letraMinuscula # guardamos el contenido del documento 'letraMinuscula' en la variable 'letra'
 	rm letraMinuscula # borramos el archivo 'letraMinuscula'
 	if [ $letraIngresada == 'a' ] || [ $letraIngresada == 'e' ] || [ $letraIngresada == 'i' ] || [ $letraIngresada == 'o' ] || [ $letraIngresada == 'u' ]; then
-	 #La letra ingresada es vocal 
-	 echo "Ingrese directorio"
+	 #La letra ingresada es vocal
+		existeLetra=1
+		echo "Ingrese directorio"
 		read directorioIngresado
+		existeDirectorio=1
 		echo "Ingrese usuario"
 		read usuarioIngresado
-	
+		existeUsuario=1
 	else   # la letra ingresada no es vocal 
 	echo La letra ingresada no es una vocal
 	fi	
@@ -49,8 +50,7 @@ function guardarInforme(){
 }
 
 function cambiarPropietariosYPermiso(){
-	echo 
-	'cambiar Propietarios'
+	echo 'cambiar Propietarios'
 	cd $directorioIngresado
 	sudo chown $usuarioIngresado solucion.txt  # cambio el propietario
 	sudo chgrp $usuarioIngresado solucion.txt # cambio el grupo
@@ -68,50 +68,67 @@ function salir(){
 	echo "salir"
 }
 
-function mostrarMenu(){
-	echo $menu
-	datosIngresados="
-	Se ha escogido la letra: $letraIngresada
-	Se ha escogido el directorio: $directorioIngresado
-	Se ha escogido el usuario: $usuarioIngresado
-	Ingrese su eleccion: "
-	#datosNoIngresados="
-	#Aun no se ha escogido una letra
-	#No se ha seleccionado un nombre de directorio
-	#Aun no se ha escogido un usuario
-	#Ingrese su eleccion: "
-
-}
 menu=("Configurar variables"
 "Obtener Informe de la letra"
 "Guardar Informe"
 "Cambiar propietarios y permiso"
 "Salir")
 
+function mostrarMenu(){
+	echo
+	echo "1) Configurar variables"
+	echo "2) Obtener Informe de la letra"
+	echo "3) Guardar Informe"
+	echo "4) Cambiar propietarios y permiso"
+	echo "5) Salir"
+}
 
-echo "$menu"
-#if [  ]; then
-#fi
+function mostrarDatosYMenu(){
+	echo
+	if [ $existeLetra == 0 ]; then
+		echo Aun no se ha escogido una letra
+	else
+		echo Se ha escogido la letra: $letraIngresada
+	fi
+
+	if [ $existeDirectorio == 0 ]; then
+		echo Aun no se ha escogido un nombre de directorio
+	else
+		echo El nombre del directorio es: $directorioIngresado
+	fi
+	
+	if [ $existeUsuario == 0 ]; then
+		echo Aun no se ha escogido un usuario
+	else
+		echo Se ha escogido el usuario: $usuarioIngresado
+	fi
+	
+	mostrarMenu
+}
+
 
 PS3='
 Ingrese su eleccion:
 '
 select opt in "${menu[@]}"
 do
-	mostrarMenu
 	case $opt in
 		"Configurar variables")
 			echo "usted eligio 1"
 			configurarVariables
+			mostrarDatosYMenu
 			;;
 		"Obtener Informe de la letra")
 			obtenerInformeLetra
+			mostrarDatosYMenu
 			;;
 		"Guardar Informe")
 			guardarInforme
+			mostrarDatosYMenu
 			;;
 		"Cambiar propietarios y permiso")
 			cambiarPropietariosYPermiso
+			mostrarDatosYMenu
 			;;
 		"Salir")
 			break
