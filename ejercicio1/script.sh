@@ -1,25 +1,44 @@
 #!/bin/bash
-existeLetra=0
+## Supuestos
+#- El usuario debe estar creado antes de iniciar el programa
+#	Para agregar nuevo usuario usar los siguientes comandos
+#		sudo useradd [nombre_de_usuario]
+#		sudo passwd [nombre_de_usuario] (para cambiar password del usuario recien creado)
+#- En el ejercicio 1 
+
+#Creamos variables que contienen 0 si no fueron creadas y 1 si fueron creadas correctamente
+existeLetra=0	
 existeDirectorio=0
 existeUsuario=0
+#En caso de que se ingrese un valor invalido cada uno de estos valores vuelven a 0
 
 function configurarVariables(){
 	echo "Ingrese la letra"
-	read letraIngresada #falta validar
+	read letraIngresada
+	# Convertimos la letra ingresada en minuscula
 	echo $letraIngresada | tr [:upper:] [:lower:] | cat > letraMinuscula # creamos archivo con la letra ingresada convertida a minuscula
 	read letraIngresada <letraMinuscula # guardamos el contenido del documento 'letraMinuscula' en la variable 'letra'
 	rm letraMinuscula # borramos el archivo 'letraMinuscula'
+	# Validamos que la letra ingresada haya sido vocal minuscula
 	if [ $letraIngresada == 'a' ] || [ $letraIngresada == 'e' ] || [ $letraIngresada == 'i' ] || [ $letraIngresada == 'o' ] || [ $letraIngresada == 'u' ]; then
-	 #La letra ingresada es vocal
+	 	#La letra ingresada es vocal
 		existeLetra=1
 		echo "Ingrese directorio"
 		read directorioIngresado
-		existeDirectorio=1
-		echo "Ingrese usuario"
-		read usuarioIngresado
-		existeUsuario=1
+		if [[ "$directorioIngresado" =~ [^[:lower:]] ]]; then
+    			# El directorio ingresado contiene algo distinto a letras minusculas
+			echo "No se ha seleccionado un nombre de directorio"
+			existeDirectorio=0
+		else
+    			# El directorio ingresado contiene solo letras minusculas
+			existeDirectorio=1
+			echo  "Ingrese usuario"
+			read usuarioIngresado
+			existeUsuario=1
+		fi
 	else   # la letra ingresada no es vocal 
-	echo La letra ingresada no es una vocal
+		echo La letra ingresada no es una vocal
+		existeLetra=0
 	fi	
 	}
 
@@ -43,7 +62,7 @@ function guardarInforme(){
 	echo Palabras que finalizan con letra ingresada: | cat >> solucion.txt
 	grep -c "$letraIngresada$" diccionario.txt | cat >> solucion.txt     #escribo info en archivo, cantidad fin
 	echo Cantidad de palabras que contienen la letra ingresada:  = | cat >> solucion.txt
-	grep -c "$letraIngresada" diccionario.txt | cat >> solucion.txt	     #escribo info en archivo, cantidad contien
+	grep -c "$letraIngresada" diccionario.txt | cat >> solucion.txt	     #escribo info en archivo, cantidad contiene
 	rm diccionario.txt  #elimino el archivo
 	cd ..
 	echo "Informe guardado"

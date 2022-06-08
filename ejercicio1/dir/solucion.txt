@@ -1,7 +1,0 @@
-Mon Jun  6 12:13:36 AM -03 2022
-Palabras que comienzan con letra ingresada:
-19618
-Palabras que finalizan con letra ingresada:
-10603
-Cantidad de palabras que contienen la letra ingresada: =
-118102
