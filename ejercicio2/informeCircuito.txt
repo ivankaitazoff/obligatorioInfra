@@ -1,6 +1,11 @@
 Obligatorio Infraestructura
 Informe Ejercicio 2
 
+Nombres de alumnos:
+Ivan Kaitazoff - 233940
+Ma. Ximena Chaves - 161267
+Raquel Brandariz - 188959
+
 Ingreso de palabra
 Para ingresar los datos a la maquina decidimos separar los datos en 3 grupos, cada grupo de 3 bits, estos se llaman ABC, DEF y GHI.
 
