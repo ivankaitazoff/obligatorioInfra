@@ -59,10 +59,10 @@
     <a name="circuit" val="main"/>
     <a name="circuitnamedboxfixedsize" val="true"/>
     <a name="simulationFrequency" val="1.0"/>
-    <comp lib="0" loc="(1030,1020)" name="Pin">
+    <comp lib="0" loc="(1010,770)" name="Pin">
       <a name="appearance" val="NewPins"/>
       <a name="facing" val="west"/>
-      <a name="label" val="ResultadoOpcion8"/>
+      <a name="label" val="ResultadoOpcion6"/>
       <a name="output" val="true"/>
       <a name="width" val="3"/>
     </comp>
@@ -71,15 +71,10 @@
       <a name="fanout" val="3"/>
       <a name="incoming" val="3"/>
     </comp>
-    <comp lib="0" loc="(1060,720)" name="Pin">
+    <comp lib="0" loc="(1390,1020)" name="Pin">
       <a name="appearance" val="NewPins"/>
       <a name="facing" val="west"/>
-      <a name="output" val="true"/>
-      <a name="width" val="3"/>
-    </comp>
-    <comp lib="0" loc="(1300,180)" name="Pin">
-      <a name="appearance" val="NewPins"/>
-      <a name="facing" val="west"/>
+      <a name="label" val="ResultadoOpcion8"/>
       <a name="output" val="true"/>
       <a name="width" val="3"/>
     </comp>
@@ -124,22 +119,22 @@
       <a name="fanout" val="3"/>
       <a name="incoming" val="3"/>
     </comp>
-    <comp lib="0" loc="(900,590)" name="Pin">
-      <a name="appearance" val="NewPins"/>
-      <a name="facing" val="west"/>
-      <a name="label" val="ResultadoEjercicio4"/>
-      <a name="output" val="true"/>
-    </comp>
-    <comp lib="0" loc="(900,800)" name="Pin">
-      <a name="appearance" val="NewPins"/>
-      <a name="facing" val="west"/>
-      <a name="label" val="ResultadoOpcion6"/>
-      <a name="output" val="true"/>
-    </comp>
-    <comp lib="0" loc="(960,720)" name="Splitter">
+    <comp lib="0" loc="(880,770)" name="Splitter">
       <a name="facing" val="west"/>
       <a name="fanout" val="3"/>
       <a name="incoming" val="3"/>
+    </comp>
+    <comp lib="0" loc="(920,560)" name="Splitter">
+      <a name="facing" val="west"/>
+      <a name="fanout" val="3"/>
+      <a name="incoming" val="3"/>
+    </comp>
+    <comp lib="0" loc="(980,560)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="facing" val="west"/>
+      <a name="label" val="ResultadoOpcion4"/>
+      <a name="output" val="true"/>
+      <a name="width" val="3"/>
     </comp>
     <comp lib="0" loc="(980,920)" name="Splitter">
       <a name="bit0" val="2"/>
@@ -172,7 +167,7 @@
     <comp lib="5" loc="(900,390)" name="LED">
       <a name="label" val="OverflowEnLaSuma"/>
     </comp>
-    <comp lib="5" loc="(920,1110)" name="LED">
+    <comp lib="5" loc="(990,1110)" name="LED">
       <a name="label" val="OverflowEnLaResta"/>
     </comp>
     <comp loc="(750,100)" name="Memoria_Interna"/>
@@ -180,11 +175,19 @@
     <comp loc="(790,920)" name="ConversorComplemento"/>
     <comp loc="(800,350)" name="Ejercicio3Sumador"/>
     <comp loc="(800,590)" name="Ejercicio4"/>
+    <wire from="(1010,1010)" to="(1010,1030)"/>
+    <wire from="(1030,1020)" to="(1330,1020)"/>
+    <wire from="(1160,360)" to="(1160,510)"/>
+    <wire from="(1160,360)" to="(1340,360)"/>
+    <wire from="(1240,380)" to="(1240,700)"/>
+    <wire from="(1240,380)" to="(1340,380)"/>
     <wire from="(1270,180)" to="(1270,340)"/>
-    <wire from="(1270,180)" to="(1300,180)"/>
     <wire from="(1270,340)" to="(1340,340)"/>
     <wire from="(1270,390)" to="(1270,920)"/>
     <wire from="(1270,390)" to="(1340,390)"/>
+    <wire from="(1330,1020)" to="(1390,1020)"/>
+    <wire from="(1330,400)" to="(1330,1020)"/>
+    <wire from="(1330,400)" to="(1340,400)"/>
     <wire from="(1360,410)" to="(1360,490)"/>
     <wire from="(1380,370)" to="(1450,370)"/>
     <wire from="(160,470)" to="(210,470)"/>
@@ -268,18 +271,24 @@
     <wire from="(800,370)" to="(900,370)"/>
     <wire from="(800,390)" to="(900,390)"/>
     <wire from="(800,590)" to="(900,590)"/>
+    <wire from="(820,1010)" to="(1010,1010)"/>
+    <wire from="(820,1010)" to="(820,1050)"/>
     <wire from="(820,1050)" to="(820,1110)"/>
-    <wire from="(820,1110)" to="(920,1110)"/>
-    <wire from="(860,730)" to="(860,800)"/>
-    <wire from="(860,730)" to="(940,730)"/>
-    <wire from="(860,800)" to="(900,800)"/>
-    <wire from="(880,1030)" to="(880,1040)"/>
-    <wire from="(880,1040)" to="(1010,1040)"/>
-    <wire from="(930,1030)" to="(1010,1030)"/>
-    <wire from="(930,1030)" to="(930,1070)"/>
-    <wire from="(960,720)" to="(1060,720)"/>
+    <wire from="(820,1110)" to="(990,1110)"/>
+    <wire from="(880,1030)" to="(880,1050)"/>
+    <wire from="(880,1050)" to="(1010,1050)"/>
+    <wire from="(880,770)" to="(980,770)"/>
+    <wire from="(920,560)" to="(950,560)"/>
+    <wire from="(930,1040)" to="(1010,1040)"/>
+    <wire from="(930,1040)" to="(930,1070)"/>
+    <wire from="(950,510)" to="(1160,510)"/>
+    <wire from="(950,510)" to="(950,560)"/>
+    <wire from="(950,560)" to="(980,560)"/>
     <wire from="(960,920)" to="(960,930)"/>
     <wire from="(960,950)" to="(960,960)"/>
+    <wire from="(980,700)" to="(1240,700)"/>
+    <wire from="(980,700)" to="(980,770)"/>
+    <wire from="(980,770)" to="(1010,770)"/>
     <wire from="(980,920)" to="(1270,920)"/>
   </circuit>
   <circuit name="Memoria_Interna">
