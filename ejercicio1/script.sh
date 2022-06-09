@@ -1,8 +1,8 @@
 #!/bin/bash
 # Nombres de estudiantes:
 #	Ivan Kaitazoff - 233940
-#	Ma. Ximena chaves - 161267
-#	Raquel brandariz - 188959
+#	Ma. Ximena Chaves - 161267
+#	Raquel Brandariz - 188959
 ## Supuestos
 #- El usuario debe estar creado antes de iniciar el programa
 #	Para agregar nuevo usuario usar los siguientes comandos
